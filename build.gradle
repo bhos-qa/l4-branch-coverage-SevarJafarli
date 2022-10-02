@@ -3,6 +3,7 @@
 plugins {
   id 'java'
   id "org.sonarqube" version "3.4.0.2513"
+  id 'jacoco'
 }
 
 
@@ -24,4 +25,16 @@ dependencies {
 test {
     useJUnitPlatform()
 
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDir = file("build/reports/jacoco")
 }
